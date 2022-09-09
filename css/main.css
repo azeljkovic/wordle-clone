@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  font-family: "Andale Mono", serif;
 }
 
 .page-header {
@@ -16,3 +17,33 @@ body {
 #separator {
   border: thin solid #000000;
 }
+
+.loader-space {
+  padding: 40px 0;
+  display: grid;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px 50px;
+  grid-gap: 5px;
+  background-color: #fff;
+  color: #444;
+
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  padding: 10px;
+}
+
+.box {
+  color: silver;
+  border: solid black 3px;
+  border-radius: 15%;
+  padding: 5px;
+  margin: 5px;
+  font-size: 150%;
+}
+
