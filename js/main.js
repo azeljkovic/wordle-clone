@@ -1,13 +1,14 @@
+import {checkWord} from "./checkWord";
+import {getLetterBoxElement} from "./getLetterBoxElement";
+
 let grid = document.querySelector('.container');
 let letterBoxElement = '';
-let letterBoxSelector = '';
 let letterIndex = 0;
 let wordEndIndex = 5;
 let wordStartIndex = 0;
 let currentWord = '';
 
-const DICTIONARY = ['green', 'trial', 'serve'];
-const FINAL_WORD = 'lobby';
+const DICTIONARY = ['green', 'trial', 'serve', 'truly', 'lobby'];
 
 
 document.addEventListener('keydown', printLetter);
@@ -29,20 +30,23 @@ function printLetter(e) {
     currentWord = '';
     if (letterIndex === wordEndIndex) {
       for (let i = wordEndIndex - 5; i < letterIndex; i++) { // assemble current word
-        letterBoxSelector = `.letter-${i}`;
-        letterBoxElement = document.querySelector(letterBoxSelector);
+        letterBoxElement = getLetterBoxElement(i);
         currentWord += letterBoxElement.textContent;
         currentWord = currentWord.toLowerCase();
       }
       console.log(checkIfWordExistInDictionary(currentWord));
       if (!checkIfWordExistInDictionary(currentWord)) {
         launchToast();
+      } else {
+        if(checkWord(currentWord, wordStartIndex)){
+          letterIndex = 30; // disable further input by moving letter index to the end
+        } else {
+          wordStartIndex += 5;
+          wordEndIndex += 5;
+        }
       }
-      wordStartIndex += 5;
-      wordEndIndex += 5;
     }
   }
-
 }
 
 
@@ -50,10 +54,6 @@ function isLetter(letter) {
   return /^[a-zA-Z]$/.test(letter);
 }
 
-function getLetterBoxElement(index) {
-  letterBoxSelector = `.letter-${index}`;
-  return document.querySelector(letterBoxSelector);
-}
 
 function checkIfWordExistInDictionary(word) {
   for (let i = 0; i < DICTIONARY.length; i++) {
