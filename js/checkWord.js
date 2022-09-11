@@ -2,7 +2,7 @@ import {getLetterBoxElement} from "./getLetterBoxElement";
 
 const GREEN = '#538d4e';
 const YELLOW = '#b59f3b';
-const FINAL_WORD = 'lobby';
+const FINAL_WORD = 'blobs';
 
 export function checkWord(word, startIndex) {
   let elementSelector = '';
@@ -33,6 +33,9 @@ export function checkWord(word, startIndex) {
         elementSelector = getLetterBoxElement(startIndex + i);
         elementSelector.style = `background-color: ${YELLOW}`;
       }
+       // clear the word from the array to avoid double recognition in case
+       // that set word has two same letters
+      finalWordLetters[index] = '';
     }
   }
   return false;

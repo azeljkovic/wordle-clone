@@ -1,14 +1,14 @@
-import {checkWord} from "./checkWord";
-import {getLetterBoxElement} from "./getLetterBoxElement";
+import {isLetter} from "./isLetter.js";
+import {checkIfWordExistInDictionary} from "./checkIfWordExistInDictionary.js";
+import {launchToast} from "./launchToast.js";
+import {checkWord} from "./checkWord.js";
+import {getLetterBoxElement} from "./getLetterBoxElement.js";
 
-let grid = document.querySelector('.container');
 let letterBoxElement = '';
 let letterIndex = 0;
 let wordEndIndex = 5;
 let wordStartIndex = 0;
 let currentWord = '';
-
-const DICTIONARY = ['green', 'trial', 'serve', 'truly', 'lobby'];
 
 
 document.addEventListener('keydown', printLetter);
@@ -34,7 +34,6 @@ function printLetter(e) {
         currentWord += letterBoxElement.textContent;
         currentWord = currentWord.toLowerCase();
       }
-      console.log(checkIfWordExistInDictionary(currentWord));
       if (!checkIfWordExistInDictionary(currentWord)) {
         launchToast();
       } else {
@@ -47,29 +46,4 @@ function printLetter(e) {
       }
     }
   }
-}
-
-
-function isLetter(letter) {
-  return /^[a-zA-Z]$/.test(letter);
-}
-
-
-function checkIfWordExistInDictionary(word) {
-  for (let i = 0; i < DICTIONARY.length; i++) {
-    if (word === DICTIONARY[i]) {
-      return true;
-    }
-  }
-  return false;
-}
-
-
-function launchToast() {
-  let toast = document.querySelector('#toast');
-  toast.className = "show";
-  // After 3 seconds, remove the show class from DIV
-  setTimeout(function () {
-    toast.className = toast.className.replace("show", "");
-  }, 3000);
 }
