@@ -13,7 +13,7 @@ let currentWord;
 
 document.addEventListener('keydown', printLetter);
 
-function printLetter(e) {
+async function printLetter(e) {
   // letter key handler
   if (isLetter(e.key) && letterIndex < wordEndIndex) {
     letterBoxElement = getLetterBoxElement(letterIndex);
@@ -38,8 +38,8 @@ function printLetter(e) {
         currentWord += letterBoxElement.textContent;
         currentWord = currentWord.toLowerCase();
       }
-      if (!checkIfWordExistInDictionary(currentWord)) {
-        launchToast();
+      if (!await checkIfWordExistInDictionary(currentWord)) {
+        launchToast('Not in the word list!');
       } else {
         if (checkWord(currentWord, wordStartIndex)) {
           // disable further input by moving letter index to the end
