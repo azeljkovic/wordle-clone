@@ -1,9 +1,8 @@
 import {launchToast} from "./launchToast";
 const CHECK_DICTIONARY_URL = 'https://words.dev-apis.com/validate-word';
 
-export async function checkIfWordExistInDictionary(word) {
+export async function checkIfWordExistsInDictionary(word) {
   const data = {word: word};
-
 
   try {
     let response = await fetch(CHECK_DICTIONARY_URL, {

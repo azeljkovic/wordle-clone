@@ -3,11 +3,10 @@ import {getLetterBoxElement} from "./getLetterBoxElement";
 const GREEN = '#538d4e';
 const YELLOW = '#b59f3b';
 const GRAY = '#adadad';
-const FINAL_WORD = 'blobs';
 
-export function checkWord(word, startIndex) {
+export function checkWord(currentWord, finalWord, startIndex) {
   let elementSelector = '';
-  if (word === FINAL_WORD) {
+  if (currentWord === finalWord) {
     for (let i = 0; i < 5; i++) {
       elementSelector = getLetterBoxElement(startIndex + i);
       elementSelector.style = `background-color: ${GREEN}`;
@@ -17,8 +16,8 @@ export function checkWord(word, startIndex) {
     }, 1)
     return true;
   } else {
-    let wordLetters = word.split('');
-    let finalWordLetters = FINAL_WORD.split('');
+    let wordLetters = currentWord.split('');
+    let finalWordLetters = finalWord.split('');
     for (let i = 0; i < 5; i++) {
       let index;
       index = finalWordLetters.indexOf(wordLetters[i])
