@@ -9,3 +9,5 @@
 
 
 My implementation of Wordle made with vanilla JavaScript, HTML and CSS. It has only one dependency-Parcel.
+
+You can give it a try at: https://cosmic-cajeta-1e467b.netlify.app/
