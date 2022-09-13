@@ -15,6 +15,9 @@ let finalWord = '';
 const MAXIMUM_LETTER_BOX_INDEX = 30;
 const LIGHT_GRAY = '#c4c4c4';
 
+// const spinner = document.querySelector('#spinner');
+// spinner.removeAttribute('hidden');
+
 (async () => {
   finalWord = await getFinalWord();
   if (!finalWord) {
