@@ -3,7 +3,7 @@ import {launchToast} from "./launchToast";
 
 const GREEN = '#538d4e';
 const YELLOW = '#b59f3b';
-const GRAY = '#adadad';
+const GRAY = '#444';
 
 export function checkWord(currentWord, finalWord, startIndex) {
   let elementSelector = '';
