@@ -1,4 +1,5 @@
 import {getLetterBoxElement} from "./getLetterBoxElement";
+import {launchToast} from "./launchToast";
 
 const GREEN = '#538d4e';
 const YELLOW = '#b59f3b';
@@ -11,9 +12,7 @@ export function checkWord(currentWord, finalWord, startIndex) {
       elementSelector = getLetterBoxElement(startIndex + i);
       elementSelector.style = `background-color: ${GREEN}`;
     }
-    setTimeout(() => {
-      window.alert("You got the right word, congrats!");
-    }, 1)
+    launchToast('🎉 Congrats! 🎉');
     return true;
   } else {
     let wordLetters = currentWord.split('');
