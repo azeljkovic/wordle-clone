@@ -15,9 +15,9 @@ export async function checkIfWordExistsInDictionary(word) {
       body: JSON.stringify(data),
     });
 
-    const body = await response.json();
+    const {validWord} = await response.json();
     spinner.setAttribute('hidden', '');
-    return body.validWord;
+    return validWord;
 
   } catch (e) {
     launchToast('Error occurred...');

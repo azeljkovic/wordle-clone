@@ -8,8 +8,8 @@ export async function getFinalWord() {
       method: 'GET'
     });
 
-    const body = await response.json();
-    return body.word;
+    const {word} = await response.json();
+    return word;
 
   } catch (e) {
     launchToast('Error occurred...');

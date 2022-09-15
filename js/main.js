@@ -64,6 +64,9 @@ async function printLetter(e) {
           // disable further input by moving letter index to the end
           letterIndex = MAXIMUM_LETTER_BOX_INDEX;
         } else {
+          if(wordEndIndex === MAXIMUM_LETTER_BOX_INDEX){
+            launchToast('😢 Try again! 😢');
+          }
           wordStartIndex += 5;
           wordEndIndex += 5;
         }
